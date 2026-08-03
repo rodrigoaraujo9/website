@@ -69,13 +69,33 @@ pub fn About() -> Element {
                 div { class: "ls", "> $ cat about.txt" }
 
                 p {
-                    "Hi! My name is Rodrigo Araújo and I'm from Braga, Portugal. As of this moment, I'm pursuing a Master's Degree in Computer Science and focusing my studies on programming languages and distributed systems. I have also got quite the knack for low-level systems programming so I've been diving into making synthesizers lately. I develop most of my work in Rust, Haskell and C."
+                    "Hi! My name is Rodrigo Araújo and I'm from Braga, Portugal. As of this moment, I'm pursuing a Master's Degree in Computer Science and focusing my studies on "
+                    span { class: "highlight", "programming languages" }
+                    " and "
+                    span { class: "highlight", "distributed systems" }
+                    ". I have also got quite the knack for "
+                    span { class: "highlight", "low-level systems programming" }
+                    " so I've been diving into making synthesizers lately. I develop most of my work in "
+                    span { class: "highlight", "Rust" }
+                    ", "
+                    span { class: "highlight", "Haskell" }
+                    " and "
+                    span { class: "highlight", "C" }
+                    "."
                 }
+
                 p {
-                    "Although computer science is one of my biggest devotions, I also compose, write and overall love music."
+                    "Although computer science is one of my biggest devotions, I also compose, write and overall love "
+                    span { class: "highlight", "music" }
+                    "."
                 }
+
                 p {
-                    "As for my academic endevours, I am currently starting my Master's thesis on combining cryptography with session types to enforce communication-security guarantees at compile-time."
+                    "As for my academic endeavours, I am currently starting my Master's thesis on combining "
+                    span { class: "highlight", "cryptography" }
+                    " with "
+                    span { class: "highlight", "session types" }
+                    " to enforce communication-security guarantees at compile-time."
                 }
 
                 // ls (education, music, maths?, background?)
@@ -247,23 +267,23 @@ pub fn Social() -> Element {
                             }
                         }
 
-                        li {
-                            a {
-                                href: "https://letterboxd.com/rodrigoaraujo9/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                "letterboxd"
-                            }
-                        }
+                        // li {
+                        //     a {
+                        //         href: "https://letterboxd.com/rodrigoaraujo9/",
+                        //         target: "_blank",
+                        //         rel: "noopener noreferrer",
+                        //         "letterboxd"
+                        //     }
+                        // }
 
-                        li {
-                            a {
-                                href: "https://open.spotify.com/user/11161909394?si=4b52211aa39046f8",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                "spotify"
-                            }
-                        }
+                        // li {
+                        //     a {
+                        //         href: "https://open.spotify.com/user/11161909394?si=4b52211aa39046f8",
+                        //         target: "_blank",
+                        //         rel: "noopener noreferrer",
+                        //         "spotify"
+                        //     }
+                        // }
                     }
                 }
 
