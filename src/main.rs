@@ -12,12 +12,14 @@ enum Route {
     Home {},
     #[route("/about")]
     About {},
-    #[route("/work")]
-    Work {},
+    #[route("/projects")]
+    Projects {},
     #[route("/music")]
     Music {},
     #[route("/photos")]
     Photos {},
+    #[route("/social")]
+    Social {},
 }
 
 fn main() {
