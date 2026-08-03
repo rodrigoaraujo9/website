@@ -11,7 +11,7 @@ body {
 
 body {
     background-color: #1f1f1f;
-    color: #b7b7b7;
+    color: #c4c4c4;
     font-family: "Space Mono", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -140,7 +140,7 @@ header b {
 }
 
 .project-description {
-    color: #b7b7b7;
+    color: #c4c4c4;
 }
 
 .nav a,
@@ -150,7 +150,7 @@ header b {
 }
 
 .highlight {
-    color: #f5f5f5;
+    color: #cfcfcf;
 }
 
 @media (max-width: 650px) {

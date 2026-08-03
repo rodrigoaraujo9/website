@@ -267,14 +267,20 @@ pub fn Social() -> Element {
                             }
                         }
 
-                        // li {
-                        //     a {
-                        //         href: "https://letterboxd.com/rodrigoaraujo9/",
-                        //         target: "_blank",
-                        //         rel: "noopener noreferrer",
-                        //         "letterboxd"
-                        //     }
-                        // }
+                        li {
+                            a {
+                                href: "https://letterboxd.com/rodrigoaraujo9/",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                "letterboxd"
+                            }
+                        }
+
+                        Link {
+                            to: Route::Music {},
+                            class: "cmd-link",
+                            "music"
+                        }
 
                         // li {
                         //     a {
@@ -318,7 +324,7 @@ pub fn Music() -> Element {
                 div { class: "ls",
                     "> $ "
                         Link {
-                            to: Route::Home {},
+                            to: Route::Social {},
                             class: "cmd-link",
                             "cd .."
                         }
