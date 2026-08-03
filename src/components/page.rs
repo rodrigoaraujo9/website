@@ -97,15 +97,24 @@ pub fn About() -> Element {
 #[component]
 pub fn Projects() -> Element {
     rsx! {
-        div { class: "page",
-            div { class: "work",
+        div {
+            class: "page",
+
+            div {
+                class: "work",
+
                 header {
                     b { "rodrigoaraujo" }
                     " ~/projects"
                 }
-                div { class: "ls", "> $ cargo run" }
 
-                div { class: "project-grid",
+                div {
+                    class: "ls",
+                    "> $ cargo run"
+                }
+
+                div {
+                    class: "project-grid",
 
                     a {
                         class: "project-card",
@@ -113,14 +122,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "synth-c" }
-                                p {
-                                    "A real-time synth written in C with a physical controller. Real-time audio with multiple waveforms, filters and modulators. Also supports streaming audio to Android."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "synth-c" }
+                        span { class: "project-description", "Real-time synthesizer written in C." }
                     }
 
                     a {
@@ -129,14 +132,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "gargantua" }
-                                p {
-                                    "A real-time Rust simulation of light orbiting a Schwarzschild black hole. Made with Raylib and it is currently 2D."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "gargantua" }
+                        span { class: "project-description", "Schwarzschild black-hole simulator in Rust." }
                     }
 
                     a {
@@ -145,14 +142,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "blocktion" }
-                                p {
-                                    "A secure proof-of-work blockchain for auctions implemented in Rust from scratch. This is the biggest project I have worked on."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "blocktion" }
+                        span { class: "project-description", "Proof-of-work auction blockchain in Rust." }
                     }
 
                     a {
@@ -161,14 +152,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "garbage-collector" }
-                                p {
-                                    "A collection of garbage collector implementations with focus on optimization and experimentation."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "garbage-collector" }
+                        span { class: "project-description", "Experimental garbage collector implementations." }
                     }
 
                     a {
@@ -177,14 +162,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "mugen" }
-                                p {
-                                    "A real-time, terminal-based synthesizer written in Rust. It supports multiple waveforms and effects and has an easily extendible modular audio chain."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "mugen" }
+                        span { class: "project-description", "Terminal synthesizer with modular DSP." }
                     }
 
                     a {
@@ -193,14 +172,8 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "sysyphus" }
-                                p {
-                                    "A retro platformer game developed for IEEE RetroJam 2025 using Raylib and Rust about the themes of rebirth. I also personally produced the soundtrack and ambience."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "sisyphus" }
+                        span { class: "project-description", "Retro platformer made for IEEE RetroJam 2025." }
                     }
 
                     a {
@@ -209,24 +182,25 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        div { class: "project-card-top",
-                            div { class: "project-info",
-                                h3 { "lambda-calculus" }
-                                p {
-                                    "A collection of lambda-calculus interpreters and compilers to SECD and Extended SKI written in Haskell, with a Happy parser."
-                                }
-                            }
-                        }
+                        span { class: "project-name", "lambda-calculus" }
+                        span { class: "project-description", "Lambda calculus interpreters and compilers." }
                     }
                 }
-                div { class: "ls",
+
+                div {
+                    class: "ls",
                     "> $ "
+
                     Link {
                         to: Route::Home {},
                         class: "cmd-link",
                         "cd .."
                     }
-                    span { class: "cursor", "█" }
+
+                    span {
+                        class: "cursor",
+                        "█"
+                    }
                 }
             }
         }
