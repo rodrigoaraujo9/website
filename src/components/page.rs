@@ -69,7 +69,18 @@ pub fn About() -> Element {
                 div { class: "ls", "> $ cat about.txt" }
 
                 p {
-                    "Hi! My name is Rodrigo Araújo and I'm from Braga, Portugal. As of this moment, I'm pursuing a Master's Degree in Computer Science and focusing my studies on "
+
+                    "Hi! My name is "
+                    span { class: "highlight", "Rodrigo Araújo" }
+                    " and I'm from Braga, "
+                    span { class: "highlight", "Portugal" }
+                    ". As of this moment, I'm pursuing a "
+                    span { class: "highlight", "Master's" }
+                    " degree in "
+                    span { class: "highlight", "Computer Science" }
+                    " at FCUP"
+
+                    " and focusing my studies on "
                     span { class: "highlight", "programming languages" }
                     " and "
                     span { class: "highlight", "distributed systems" }
@@ -85,7 +96,11 @@ pub fn About() -> Element {
                 }
 
                 p {
-                    "Although computer science is one of my biggest devotions, I also compose, write and overall love "
+                    "Although CS is one of my biggest devotions, I also "
+                    span { class: "highlight", "compose" }
+                    ", "
+                    span { class: "highlight", "write" }
+                    " and overall love "
                     span { class: "highlight", "music" }
                     "."
                 }
@@ -94,7 +109,7 @@ pub fn About() -> Element {
                     "As for my academic endeavours, I am currently starting my Master's thesis on combining "
                     span { class: "highlight", "cryptography" }
                     " with "
-                    span { class: "highlight", "session types" }
+                    span { class: "highlight", "context-free session types" }
                     " to enforce communication-security guarantees at compile-time."
                 }
 
@@ -130,7 +145,7 @@ pub fn Projects() -> Element {
 
                 div {
                     class: "ls",
-                    "> $ cargo run"
+                    "> $ cargo run --release"
                 }
 
                 div {
@@ -138,12 +153,12 @@ pub fn Projects() -> Element {
 
                     a {
                         class: "project-card",
-                        href: "https://github.com/rodrigoaraujo9/synth-c",
+                        href: "https://github.com/rodrigoaraujo9/mugen",
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "synth-c" }
-                        span { class: "project-description", "Real-time synthesizer written in C." }
+                        span { class: "project-name", "mugen" }
+                        span { class: "project-description", "Terminal synthesizer with modular DSP." }
                     }
 
                     a {
@@ -168,22 +183,12 @@ pub fn Projects() -> Element {
 
                     a {
                         class: "project-card",
-                        href: "https://github.com/rodrigoaraujo9/garbage-collector",
+                        href: "https://github.com/rodrigoaraujo9/synth-c",
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "garbage-collector" }
-                        span { class: "project-description", "Experimental garbage collector implementations." }
-                    }
-
-                    a {
-                        class: "project-card",
-                        href: "https://github.com/rodrigoaraujo9/mugen",
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-
-                        span { class: "project-name", "mugen" }
-                        span { class: "project-description", "Terminal synthesizer with modular DSP." }
+                        span { class: "project-name", "synth-c" }
+                        span { class: "project-description", "Real-time synthesizer written in C." }
                     }
 
                     a {
@@ -194,6 +199,16 @@ pub fn Projects() -> Element {
 
                         span { class: "project-name", "sisyphus" }
                         span { class: "project-description", "Retro platformer made for IEEE RetroJam 2025." }
+                    }
+
+                    a {
+                        class: "project-card",
+                        href: "https://github.com/rodrigoaraujo9/garbage-collector",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+
+                        span { class: "project-name", "garbage-collector" }
+                        span { class: "project-description", "Experimental garbage collector implementations." }
                     }
 
                     a {
@@ -276,11 +291,11 @@ pub fn Social() -> Element {
                             }
                         }
 
-                        Link {
-                            to: Route::Music {},
-                            class: "cmd-link",
-                            "music"
-                        }
+                        // Link {
+                        //     to: Route::Music {},
+                        //     class: "cmd-link",
+                        //     "music"
+                        // }
 
                         // li {
                         //     a {

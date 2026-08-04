@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
 * {
     box-sizing: border-box;
 }
@@ -126,7 +128,7 @@ header b {
 
 .project-card {
     display: grid;
-    grid-template-columns: 22ch 1fr;
+    grid-template-columns: 20ch 1fr;
     gap: 2ch;
     padding: 0.15rem 0;
     color: inherit;
@@ -150,11 +152,5 @@ header b {
 }
 
 .highlight {
-    color: #cfcfcf;
-}
-
-@media (max-width: 650px) {
-    .project-card {
-        gap: 0.25rem;
-    }
+    color: #e3e3e3;
 }
