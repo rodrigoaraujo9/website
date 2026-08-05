@@ -282,14 +282,14 @@ pub fn Social() -> Element {
                             }
                         }
 
-                        li {
-                            a {
-                                href: "https://letterboxd.com/rodrigoaraujo9/",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                "letterboxd"
-                            }
-                        }
+                        // li {
+                        //     a {
+                        //         href: "https://letterboxd.com/rodrigoaraujo9/",
+                        //         target: "_blank",
+                        //         rel: "noopener noreferrer",
+                        //         "letterboxd"
+                        //     }
+                        // }
 
                         // Link {
                         //     to: Route::Music {},
