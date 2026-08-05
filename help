@@ -1,6 +1,7 @@
 dx build --platform web --release
 
 docker build \
+  --no-cache \
   --platform linux/amd64 \
   -t rodrigoaraujo9/portfolio:latest \
   .
