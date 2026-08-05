@@ -1,0 +1,8 @@
+dx build --platform web --release
+
+docker build \
+  --platform linux/amd64 \
+  -t rodrigoaraujo9/portfolio:latest \
+  .
+
+docker push rodrigoaraujo9/portfolio:latest
