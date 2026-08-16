@@ -154,3 +154,20 @@ header b {
 .highlight {
     color: #e3e3e3;
 }
+
+@media (max-width: 600px) {
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        padding: 0.45rem 0;
+    }
+
+    .project-name {
+        line-height: 1.25;
+    }
+
+    .project-description {
+        line-height: 1.35;
+    }
+}
