@@ -143,7 +143,6 @@ pub fn Home() -> Element {
                     "> $ "
 
                     span {
-                        class: "prompt-hint",
                         "{prompt}"
                     }
 
@@ -163,70 +162,72 @@ pub fn Home() -> Element {
 #[component]
 pub fn About() -> Element {
     rsx! {
-        div { class: "page",
-            div { class: "about",
-                header {
-                    b { "rodrigoaraujo" }
-                    " ~/about"
+    div { class: "page",
+        div { class: "about",
+            header {
+                b { "rodrigoaraujo" }
+                " ~/about"
+            }
+
+            div { class: "ls", "> $ cat about.txt" }
+
+            p {
+
+                "Hi! My name is "
+                span { class: "highlight", "Rodrigo Araújo" }
+                " and I'm from Braga, "
+                span { class: "highlight", "Portugal" }
+                ". As of this moment, I'm pursuing a "
+                span { class: "highlight", "Master's" }
+                " degree in "
+                span { class: "highlight", "Computer Science" }
+                " at FCUP"
+
+                " and focusing my studies on "
+                span { class: "highlight", "programming languages" }
+                " and "
+                span { class: "highlight", "distributed systems" }
+                ". I have also got quite the knack for "
+                span { class: "highlight", "low-level systems programming" }
+                " so I've made two synthesizers this past semester. I develop most of my work in "
+                span { class: "highlight", "Rust" }
+                ", "
+                span { class: "highlight", "Haskell" }
+                " and "
+                span { class: "highlight", "C" }
+                "."
+            }
+
+            p {
+                "Although CS is one of my biggest devotions, I also "
+                span { class: "highlight", "compose" }
+                ", "
+                span { class: "highlight", "write" }
+                " and overall love "
+                span { class: "highlight", "music" }
+                "."
+            }
+
+            p {
+                "As for my academic endeavours, I am currently starting my Master's thesis on combining "
+                span { class: "highlight", "cryptography" }
+                " with "
+                span { class: "highlight", "context-free session types" }
+                " to enforce communication-security guarantees at compile-time."
+            }
+
+            // ls (education, music, maths?, background?)
+
+                "> $ "
+
+                Link {
+                    to: Route::Home {},
+                    class: "cmd-link",
+                    "cd .."
                 }
 
-                div { class: "ls", "> $ cat about.txt" }
-
-                p {
-
-                    "Hi! My name is "
-                    span { class: "highlight", "Rodrigo Araújo" }
-                    " and I'm from Braga, "
-                    span { class: "highlight", "Portugal" }
-                    ". As of this moment, I'm pursuing a "
-                    span { class: "highlight", "Master's" }
-                    " degree in "
-                    span { class: "highlight", "Computer Science" }
-                    " at FCUP"
-
-                    " and focusing my studies on "
-                    span { class: "highlight", "programming languages" }
-                    " and "
-                    span { class: "highlight", "distributed systems" }
-                    ". I have also got quite the knack for "
-                    span { class: "highlight", "low-level systems programming" }
-                    " so I've made two synthesizers this past semester. I develop most of my work in "
-                    span { class: "highlight", "Rust" }
-                    ", "
-                    span { class: "highlight", "Haskell" }
-                    " and "
-                    span { class: "highlight", "C" }
-                    "."
-                }
-
-                p {
-                    "Although CS is one of my biggest devotions, I also "
-                    span { class: "highlight", "compose" }
-                    ", "
-                    span { class: "highlight", "write" }
-                    " and overall love "
-                    span { class: "highlight", "music" }
-                    "."
-                }
-
-                p {
-                    "As for my academic endeavours, I am currently starting my Master's thesis on combining "
-                    span { class: "highlight", "cryptography" }
-                    " with "
-                    span { class: "highlight", "context-free session types" }
-                    " to enforce communication-security guarantees at compile-time."
-                }
-
-                // ls (education, music, maths?, background?)
-
-                div { class: "ls",
-                    "> $ "
-                        Link {
-                            to: Route::Home {},
-                            class: "cmd-link",
-                            "cd .."
-                        }
-                    span { class: "cursor" }
+                span {
+                    class: "cursor"
                 }
             }
         }
@@ -261,8 +262,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "mugen" }
-                        span { class: "project-description", "Terminal synthesizer with modular DSP." }
+                        span {
+                            class: "project-name",
+                            "mugen"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Terminal synthesizer with modular DSP."
+                        }
                     }
 
                     a {
@@ -271,8 +279,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "gargantua" }
-                        span { class: "project-description", "Schwarzschild black-hole simulator in Rust." }
+                        span {
+                            class: "project-name",
+                            "gargantua"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Schwarzschild black-hole simulator in Rust."
+                        }
                     }
 
                     a {
@@ -281,8 +296,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "blocktion" }
-                        span { class: "project-description", "Proof-of-work auction blockchain in Rust." }
+                        span {
+                            class: "project-name",
+                            "blocktion"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Proof-of-work auction blockchain in Rust."
+                        }
                     }
 
                     a {
@@ -291,8 +313,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "synth-c" }
-                        span { class: "project-description", "Real-time synthesizer written in C." }
+                        span {
+                            class: "project-name",
+                            "synth-c"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Real-time synthesizer written in C."
+                        }
                     }
 
                     a {
@@ -301,8 +330,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "sisyphus" }
-                        span { class: "project-description", "Retro platformer made for IEEE RetroJam 2025." }
+                        span {
+                            class: "project-name",
+                            "sisyphus"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Retro platformer made for IEEE RetroJam 2025."
+                        }
                     }
 
                     a {
@@ -311,8 +347,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "garbage-collector" }
-                        span { class: "project-description", "Experimental garbage collector implementations." }
+                        span {
+                            class: "project-name",
+                            "garbage-collector"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Experimental garbage collector implementations."
+                        }
                     }
 
                     a {
@@ -321,8 +364,15 @@ pub fn Projects() -> Element {
                         target: "_blank",
                         rel: "noopener noreferrer",
 
-                        span { class: "project-name", "lambda-calculus" }
-                        span { class: "project-description", "Lambda calculus interpreters and compilers." }
+                        span {
+                            class: "project-name",
+                            "lambda-calculus"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Lambda calculus interpreters and compilers."
+                        }
                     }
                 }
 
@@ -348,14 +398,21 @@ pub fn Projects() -> Element {
 #[component]
 pub fn Social() -> Element {
     rsx! {
-        div { class: "page",
-            div { class: "terminal",
+        div {
+            class: "page",
+
+            div {
+                class: "terminal",
+
                 header {
                     b { "rodrigoaraujo" }
                     " ~/social"
                 }
 
-                div { class: "ls", "> $ ls" }
+                div {
+                    class: "ls",
+                    "> $ ls"
+                }
 
                 nav {
                     class: "nav2",
@@ -411,14 +468,20 @@ pub fn Social() -> Element {
                     }
                 }
 
-                div { class: "ls",
+                div {
+                    class: "ls",
+
                     "> $ "
+
                     Link {
                         to: Route::Home {},
                         class: "cmd-link",
                         "cd .."
                     }
-                    span { class: "cursor" }
+
+                    span {
+                        class: "cursor"
+                    }
                 }
             }
         }
@@ -428,25 +491,40 @@ pub fn Social() -> Element {
 #[component]
 pub fn Music() -> Element {
     rsx! {
-        div { class: "page",
-            div { class: "terminal",
+        div {
+            class: "page",
+
+            div {
+                class: "terminal",
+
                 header {
                     b { "rodrigoaraujo" }
                     " ~/music"
                 }
 
-                div { class: "ls", "> $ cat README.txt" }
+                div {
+                    class: "ls",
+                    "> $ cat README.txt"
+                }
 
-                p { "Music page coming soon." }
+                p {
+                    "Music page coming soon."
+                }
 
-                div { class: "ls",
+                div {
+                    class: "ls",
+
                     "> $ "
-                        Link {
-                            to: Route::Social {},
-                            class: "cmd-link",
-                            "cd .."
-                        }
-                    span { class: "cursor"}
+
+                    Link {
+                        to: Route::Social {},
+                        class: "cmd-link",
+                        "cd .."
+                    }
+
+                    span {
+                        class: "cursor"
+                    }
                 }
             }
         }
@@ -456,25 +534,40 @@ pub fn Music() -> Element {
 #[component]
 pub fn Photos() -> Element {
     rsx! {
-        div { class: "page",
-            div { class: "terminal",
+        div {
+            class: "page",
+
+            div {
+                class: "terminal",
+
                 header {
                     b { "rodrigoaraujo" }
                     " ~/photos"
                 }
 
-                div { class: "ls", "> $ cat README.txt" }
+                div {
+                    class: "ls",
+                    "> $ cat README.txt"
+                }
 
-                p { "Photos page coming soon." }
+                p {
+                    "Photos page coming soon."
+                }
 
-                div { class: "ls",
+                div {
+                    class: "ls",
+
                     "> $ "
-                        Link {
-                            to: Route::Home {},
-                            class: "cmd-link",
-                            "cd .."
-                        }
-                    span { class: "cursor"}
+
+                    Link {
+                        to: Route::Home {},
+                        class: "cmd-link",
+                        "cd .."
+                    }
+
+                    span {
+                        class: "cursor"
+                    }
                 }
             }
         }
