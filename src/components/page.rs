@@ -1,6 +1,7 @@
-use dioxus::prelude::*;
-
 use crate::Route;
+use dioxus::prelude::*;
+use gloo_timers::future::sleep;
+use std::time::Duration;
 
 // static GARGANTUA: Asset = asset!("/assets/images/gargantua.png");
 // static SYNTHC: Asset = asset!("/assets/images/synth-c.jpeg");
@@ -8,9 +9,69 @@ static CV: Asset = asset!("/assets/rodrigoaraujo.pdf");
 
 #[component]
 pub fn Home() -> Element {
-    rsx!(
+    let mut prompt = use_signal(String::new);
+    let mut typing = use_signal(|| false);
+
+    use_future(move || async move {
+        const TEXT: &str = "click to interact";
+
+        let char_count = TEXT.chars().count();
+
+        loop {
+            // before typing
+            sleep(Duration::from_millis(2000)).await;
+
+            typing.set(true);
+
+            for i in 1..=char_count {
+                let text = TEXT.chars().take(i).collect::<String>();
+                prompt.set(text);
+
+                // irregular typing
+                let delay = match i % 5 {
+                    0 => 110,
+                    1 => 55,
+                    2 => 80,
+                    3 => 40,
+                    _ => 65,
+                };
+
+                sleep(Duration::from_millis(delay)).await;
+            }
+
+            typing.set(false);
+
+            // after typing and before deleting
+            sleep(Duration::from_millis(2200)).await;
+
+            typing.set(true);
+
+            for i in (0..char_count).rev() {
+                let text = TEXT.chars().take(i).collect::<String>();
+                prompt.set(text);
+
+                // deleting is faster and more regular
+                let delay = match i % 4 {
+                    0 => 70,
+                    1 => 45,
+                    2 => 60,
+                    _ => 50,
+                };
+
+                sleep(Duration::from_millis(delay)).await;
+            }
+
+            typing.set(false);
+
+            // before repeating
+            sleep(Duration::from_millis(15000)).await;
+        }
+    });
+
+    rsx! {
         div {
-            class:"page",
+            class: "page",
+
             div {
                 class: "terminal",
 
@@ -24,36 +85,79 @@ pub fn Home() -> Element {
                     "> $ ls "
                 }
 
-                // add time in braga
-
                 nav {
                     class: "nav",
+
                     ul {
-                        li { Link { to: Route::About {}, "about" } }
-                        li { Link { to: Route::Projects {}, "projects" } }
-                        li { Link { to: Route::Social {}, "social"} }
+                        li {
+                            Link {
+                                to: Route::About {},
+                                "about"
+                            }
+                        }
+
+                        li {
+                            Link {
+                                to: Route::Projects {},
+                                "projects"
+                            }
+                        }
+
+                        li {
+                            Link {
+                                to: Route::Social {},
+                                "social"
+                            }
+                        }
+
                         a {
                             href: "{CV}",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             "cv"
                         }
-                        // li { Link { to: Route::Music {}, "music" } }
-                        // li { Link { to: Route::Photos {}, "photos" } }
+
+                        // li {
+                        //     Link {
+                        //         to: Route::Music {},
+                        //         "music"
+                        //     }
+                        // }
+
+                        // li {
+                        //     Link {
+                        //         to: Route::Photos {},
+                        //         "photos"
+                        //     }
+                        // }
                     }
                 }
 
                 div {
-                    class: "ls",
+                    class: "ls interactive-prompt",
+
+                    onclick: move |_| {
+                        prompt.set(String::new());
+                    },
+
                     "> $ "
+
                     span {
-                        class: "cursor",
-                        "█"
+                        class: "prompt-hint",
+                        "{prompt}"
+                    }
+
+                    span {
+                        class: if typing() {
+                            "cursor typing"
+                        } else {
+                            "cursor"
+                        }
                     }
                 }
             }
         }
-    )
+    }
 }
 
 #[component]
@@ -122,7 +226,7 @@ pub fn About() -> Element {
                             class: "cmd-link",
                             "cd .."
                         }
-                    span { class: "cursor", "█" }
+                    span { class: "cursor" }
                 }
             }
         }
@@ -233,8 +337,7 @@ pub fn Projects() -> Element {
                     }
 
                     span {
-                        class: "cursor",
-                        "█"
+                        class: "cursor"
                     }
                 }
             }
@@ -315,7 +418,7 @@ pub fn Social() -> Element {
                         class: "cmd-link",
                         "cd .."
                     }
-                    span { class: "cursor", "█" }
+                    span { class: "cursor" }
                 }
             }
         }
@@ -343,7 +446,7 @@ pub fn Music() -> Element {
                             class: "cmd-link",
                             "cd .."
                         }
-                    span { class: "cursor", "█" }
+                    span { class: "cursor"}
                 }
             }
         }
@@ -371,7 +474,7 @@ pub fn Photos() -> Element {
                             class: "cmd-link",
                             "cd .."
                         }
-                    span { class: "cursor", "█" }
+                    span { class: "cursor"}
                 }
             }
         }
