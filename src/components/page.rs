@@ -86,7 +86,7 @@ pub fn About() -> Element {
                     span { class: "highlight", "distributed systems" }
                     ". I have also got quite the knack for "
                     span { class: "highlight", "low-level systems programming" }
-                    " so I've been diving into making synthesizers lately. I develop most of my work in "
+                    " so I've made two synthesizers this past semester. I develop most of my work in "
                     span { class: "highlight", "Rust" }
                     ", "
                     span { class: "highlight", "Haskell" }
