@@ -145,6 +145,7 @@ header b {
 .interactive-prompt {
     cursor: text;
     min-height: 1.5em;
+    color: #ffffff;
 }
 
 .about {
@@ -199,4 +200,22 @@ header b {
     .project-description {
         line-height: 1.35;
     }
+}
+
+.nav a,
+.nav2 a,
+.cmd-link,
+.project-name {
+    color: #c8c8c8;
+}
+
+.nav a:hover,
+.nav2 a:hover,
+.cmd-link:hover,
+.project-card:hover .project-name {
+    color: #ffffff;
+}
+
+.project-card:hover .project-description {
+    color: #d0d0d0;
 }
