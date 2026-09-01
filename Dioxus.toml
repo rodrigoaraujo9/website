@@ -1,21 +1,15 @@
 [application]
+name = "website"
+default_platform = "web"
+public_dir = "public"
 
 [web.app]
+title = "Rodrigo Araújo"
 
-# HTML title tag content
-title = "website"
-
-# include `assets` in web platform
 [web.resource]
-
-# Additional CSS style files
 style = []
-
-# Additional JavaScript files
 script = []
 
 [web.resource.dev]
-
-# Javascript code file
-# serve: [dev-server] only
+style = []
 script = []

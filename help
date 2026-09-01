@@ -7,6 +7,3 @@ docker build \
   .
 
 docker push rodrigoaraujo9/portfolio:latest
-
-
-fix slow cold start

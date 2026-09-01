@@ -1,7 +1,6 @@
 @font-face {
     font-family: "Space Mono";
-    src: url("/assets/fonts/Space_Mono/static/SpaceMono-Regular.ttf")
-        format("truetype");
+    src: url("/assets/SpaceMono-Regular.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
     font-display: block;
@@ -9,8 +8,7 @@
 
 @font-face {
     font-family: "Space Mono";
-    src: url("/assets/fonts/Space_Mono/static/SpaceMono-Bold.ttf")
-        format("truetype");
+    src: url("/assets/SpaceMono-Bold.woff2") format("woff2");
     font-style: normal;
     font-weight: 700;
     font-display: block;
