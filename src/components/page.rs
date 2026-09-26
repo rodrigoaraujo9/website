@@ -12,62 +12,6 @@ pub fn Home() -> Element {
     let mut prompt = use_signal(String::new);
     let mut typing = use_signal(|| false);
 
-    use_future(move || async move {
-        const TEXT: &str = "click to interact";
-
-        let char_count = TEXT.chars().count();
-
-        loop {
-            // before typing
-            sleep(Duration::from_millis(2000)).await;
-
-            typing.set(true);
-
-            for i in 1..=char_count {
-                let text = TEXT.chars().take(i).collect::<String>();
-                prompt.set(text);
-
-                // irregular typing
-                let delay = match i % 5 {
-                    0 => 110,
-                    1 => 55,
-                    2 => 80,
-                    3 => 40,
-                    _ => 65,
-                };
-
-                sleep(Duration::from_millis(delay)).await;
-            }
-
-            typing.set(false);
-
-            // after typing and before deleting
-            sleep(Duration::from_millis(2200)).await;
-
-            typing.set(true);
-
-            for i in (0..char_count).rev() {
-                let text = TEXT.chars().take(i).collect::<String>();
-                prompt.set(text);
-
-                // deleting is faster and more regular
-                let delay = match i % 4 {
-                    0 => 70,
-                    1 => 45,
-                    2 => 60,
-                    _ => 50,
-                };
-
-                sleep(Duration::from_millis(delay)).await;
-            }
-
-            typing.set(false);
-
-            // before repeating
-            sleep(Duration::from_millis(15000)).await;
-        }
-    });
-
     rsx! {
         div {
             class: "page",
@@ -189,12 +133,28 @@ pub fn About() -> Element {
                 span { class: "highlight", "distributed systems" }
                 ". I have also got quite the knack for "
                 span { class: "highlight", "low-level systems programming" }
-                " so I've made two synthesizers this past semester. I develop most of my work in "
+                " so I've dived into synthesizers recently. I develop most of my work in "
                 span { class: "highlight", "Rust" }
                 ", "
                 span { class: "highlight", "Haskell" }
                 " and "
                 span { class: "highlight", "C" }
+                "."
+            }
+
+            p {
+                "As for my academic endeavours, I am currently starting my Master's thesis on combining "
+                span { class: "highlight", "cryptography" }
+                " with "
+                span { class: "highlight", "context-free session types" }
+                " to enforce correct cryptographic resourse usage in protocols at compile time."
+            }
+
+            p {
+                "I’m also leading an "
+                span { class: "highlight", "early-stage startup" }
+                " rethinking how people and AI agents build software. It brings version control, project management and CI automation into one seamless, "
+                span { class: "highlight", "correct-by-construction workflow" }
                 "."
             }
 
@@ -206,14 +166,6 @@ pub fn About() -> Element {
                 " and overall love "
                 span { class: "highlight", "music" }
                 "."
-            }
-
-            p {
-                "As for my academic endeavours, I am currently starting my Master's thesis on combining "
-                span { class: "highlight", "cryptography" }
-                " with "
-                span { class: "highlight", "context-free session types" }
-                " to enforce communication-security guarantees at compile-time."
             }
 
             // ls (education, music, maths?, background?)
