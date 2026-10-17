@@ -1,8 +1,5 @@
 use crate::Route;
 use dioxus::prelude::*;
-use gloo_timers::future::sleep;
-use std::time::Duration;
-
 // static GARGANTUA: Asset = asset!("/assets/images/gargantua.png");
 // static SYNTHC: Asset = asset!("/assets/images/synth-c.jpeg");
 static CV: Asset = asset!("/assets/rodrigoaraujo.pdf");
@@ -10,7 +7,7 @@ static CV: Asset = asset!("/assets/rodrigoaraujo.pdf");
 #[component]
 pub fn Home() -> Element {
     let mut prompt = use_signal(String::new);
-    let mut typing = use_signal(|| false);
+    let typing = use_signal(|| false);
 
     rsx! {
         div {
