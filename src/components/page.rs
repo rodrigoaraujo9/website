@@ -6,9 +6,6 @@ static CV: Asset = asset!("/assets/rodrigoaraujo.pdf");
 
 #[component]
 pub fn Home() -> Element {
-    let mut prompt = use_signal(String::new);
-    let typing = use_signal(|| false);
-
     rsx! {
         div {
             class: "page",
@@ -77,22 +74,11 @@ pub fn Home() -> Element {
                 div {
                     class: "ls interactive-prompt",
 
-                    onclick: move |_| {
-                        prompt.set(String::new());
-                    },
-
                     "> $ "
 
                     span {
-                        "{prompt}"
-                    }
+                        class: "cursor"
 
-                    span {
-                        class: if typing() {
-                            "cursor typing"
-                        } else {
-                            "cursor"
-                        }
                     }
                 }
             }
