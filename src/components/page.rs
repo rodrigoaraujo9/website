@@ -114,12 +114,10 @@ pub fn About() -> Element {
                 span { class: "highlight", "programming languages" }
                 " and "
                 span { class: "highlight", "distributed systems" }
-                ". I have also got quite the knack for "
-                span { class: "highlight", "low-level systems programming" }
-                " so I've dived into synthesizers recently. I develop most of my work in "
+                ". I develop most of my work in "
                 span { class: "highlight", "Rust" }
                 ", "
-                span { class: "highlight", "Haskell" }
+                span { class: "highlight", "Python" }
                 " and "
                 span { class: "highlight", "C" }
                 "."
@@ -136,8 +134,8 @@ pub fn About() -> Element {
             p {
                 "I’m also leading an "
                 span { class: "highlight", "early-stage startup" }
-                " rethinking how people and AI agents build software. It brings version control, project management and CI automation into one seamless, "
-                span { class: "highlight", "correct-by-construction workflow" }
+                " rethinking how people and AI agents build software. It brings version control, project management and CI automation into one "
+                span { class: "highlight", "seamless workflow" }
                 "."
             }
 
