@@ -117,14 +117,22 @@ pub fn About() -> Element {
                 ". I develop most of my work in "
                 span { class: "highlight", "Rust" }
                 ", "
-                span { class: "highlight", "Python" }
+                span { class: "highlight", "Haskell" }
                 " and "
                 span { class: "highlight", "C" }
                 "."
             }
 
             p {
-                "As for my academic endeavours, I am currently starting my Master's thesis on combining "
+                "I'm starting a new role in "
+                span { class: "highlight", "AI DevOps" }
+                " at "
+                span { class: "highlight", "Euronext" }
+                "."
+            }
+
+            p {
+                "As for my academic endeavours, I am currently writing my Master's thesis on combining "
                 span { class: "highlight", "cryptography" }
                 " with "
                 span { class: "highlight", "context-free session types" }
@@ -491,7 +499,6 @@ pub fn Photos() -> Element {
                     class: "ls",
 
                     "> $ "
-
                     Link {
                         to: Route::Home {},
                         class: "cmd-link",
