@@ -48,19 +48,11 @@ pub fn Home() -> Element {
                             }
                         }
 
-                        a {
-                            href: "{CV}",
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                            "cv"
+                        Link {
+                            to: Route::Music {},
+                            class: "cmd-link",
+                            "music"
                         }
-
-                        // li {
-                        //     Link {
-                        //         to: Route::Music {},
-                        //         "music"
-                        //     }
-                        // }
 
                         // li {
                         //     Link {
@@ -124,7 +116,7 @@ pub fn About() -> Element {
             }
 
             p {
-                "I'm starting a new role in "
+                "I'm starting a new role as "
                 span { class: "highlight", "AI DevOps" }
                 " at "
                 span { class: "highlight", "Euronext" }
@@ -376,6 +368,13 @@ pub fn Social() -> Element {
                             }
                         }
 
+                        a {
+                            href: "{CV}",
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                            "cv"
+                        }
+
                         li {
                             a {
                                 href: "mailto:contact@rodrigoaraujo.pt",
@@ -383,29 +382,6 @@ pub fn Social() -> Element {
                             }
                         }
 
-                        // li {
-                        //     a {
-                        //         href: "https://letterboxd.com/rodrigoaraujo9/",
-                        //         target: "_blank",
-                        //         rel: "noopener noreferrer",
-                        //         "letterboxd"
-                        //     }
-                        // }
-
-                        // Link {
-                        //     to: Route::Music {},
-                        //     class: "cmd-link",
-                        //     "music"
-                        // }
-
-                        // li {
-                        //     a {
-                        //         href: "https://open.spotify.com/user/11161909394?si=4b52211aa39046f8",
-                        //         target: "_blank",
-                        //         rel: "noopener noreferrer",
-                        //         "spotify"
-                        //     }
-                        // }
                     }
                 }
 
@@ -430,6 +406,50 @@ pub fn Social() -> Element {
 }
 
 #[component]
+fn Track(number: usize, source: Option<Asset>) -> Element {
+    let mut playing = use_signal(|| false);
+    let player_id = format!("track-{number}");
+
+    rsx! {
+        li {
+            button {
+                class: "track-title",
+                r#type: "button",
+                disabled: source.is_none(),
+                title: if source.is_none() { "Audio coming soon" } else { "Play / pause" },
+                "aria-pressed": playing(),
+                onclick: move |_| {
+                    document::eval(&format!(
+                        r#"
+                        const player = document.getElementById("track-{number}");
+                        if (!player.paused) {{
+                            player.pause();
+                        }} else {{
+                            document.querySelectorAll(".music-tracks audio").forEach(other => {{
+                                if (other !== player) other.pause();
+                            }});
+                            player.play().catch(() => {{}});
+                        }}
+                        "#
+                    ));
+                },
+                "untitled {number}"
+            }
+
+            audio {
+                id: player_id,
+                src: source.map(|asset| asset.to_string()),
+                preload: "none",
+                onplay: move |_| playing.set(true),
+                onpause: move |_| playing.set(false),
+                onended: move |_| playing.set(false),
+                onerror: move |_| playing.set(false),
+            }
+        }
+    }
+}
+
+#[component]
 pub fn Music() -> Element {
     rsx! {
         div {
@@ -445,11 +465,27 @@ pub fn Music() -> Element {
 
                 div {
                     class: "ls",
-                    "> $ cat README.txt"
+                    "> $ ls"
                 }
 
-                p {
-                    "Music page coming soon."
+                ul {
+                    class: "music-tracks",
+
+                    Track { number: 1, source: asset!("/assets/music/experimental/1.mp3") }
+                    Track { number: 2, source: asset!("/assets/music/experimental/2.mp3") }
+                    Track { number: 3, source: asset!("/assets/music/experimental/3.mp3") }
+                    Track { number: 4, source: asset!("/assets/music/experimental/4.mp3") }
+
+                    Track { number: 5, source: asset!("/assets/music/experimental/5.mp3") }
+
+                    Track { number: 6, source: asset!("/assets/music/piano/1.mp3") }
+                    Track { number: 7, source: asset!("/assets/music/piano/2.mp3") }
+
+                    Track { number: 8, source: asset!("/assets/music/rap/3.mp3") }
+
+                    Track { number: 9, source: asset!("/assets/music/rap/1.mp3") }
+                    Track { number: 10, source: asset!("/assets/music/rap/2.mp3") }
+                    // Track { number: 10, source: asset!("/assets/music/rap/4.mp3") }
                 }
 
                 div {
@@ -458,7 +494,7 @@ pub fn Music() -> Element {
                     "> $ "
 
                     Link {
-                        to: Route::Social {},
+                        to: Route::Home {},
                         class: "cmd-link",
                         "cd .."
                     }
