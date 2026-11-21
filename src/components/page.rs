@@ -432,7 +432,7 @@ fn Track(number: usize, source: Option<Asset>) -> Element {
                         "#
                     ));
                 },
-                "untitled {number}"
+                "untitled_{number}.wav"
             }
 
             audio {
