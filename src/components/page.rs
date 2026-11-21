@@ -1,7 +1,6 @@
 use crate::Route;
 use dioxus::prelude::*;
-// static GARGANTUA: Asset = asset!("/assets/images/gargantua.png");
-// static SYNTHC: Asset = asset!("/assets/images/synth-c.jpeg");
+
 static CV: Asset = asset!("/assets/rodrigoaraujo.pdf");
 
 #[component]
@@ -471,21 +470,20 @@ pub fn Music() -> Element {
                 ul {
                     class: "music-tracks",
 
-                    Track { number: 1, source: asset!("/assets/music/experimental/1.mp3") }
-                    Track { number: 2, source: asset!("/assets/music/experimental/2.mp3") }
-                    Track { number: 3, source: asset!("/assets/music/experimental/3.mp3") }
-                    Track { number: 4, source: asset!("/assets/music/experimental/4.mp3") }
+                    Track { number: 1, source: asset!("/assets/music/piano/1.mp3") }
+                    Track { number: 2, source: asset!("/assets/music/piano/2.mp3") }
 
-                    Track { number: 5, source: asset!("/assets/music/experimental/5.mp3") }
+                    Track { number: 3, source: asset!("/assets/music/experimental/1.mp3") }
+                    Track { number: 4, source: asset!("/assets/music/experimental/2.mp3") }
+                    Track { number: 5, source: asset!("/assets/music/experimental/3.mp3") }
+                    Track { number: 6, source: asset!("/assets/music/experimental/4.mp3") }
 
-                    Track { number: 6, source: asset!("/assets/music/piano/1.mp3") }
-                    Track { number: 7, source: asset!("/assets/music/piano/2.mp3") }
+                    Track { number: 7, source: asset!("/assets/music/experimental/5.mp3") }
 
                     Track { number: 8, source: asset!("/assets/music/rap/3.mp3") }
 
                     Track { number: 9, source: asset!("/assets/music/rap/1.mp3") }
                     Track { number: 10, source: asset!("/assets/music/rap/2.mp3") }
-                    // Track { number: 10, source: asset!("/assets/music/rap/4.mp3") }
                 }
 
                 div {
