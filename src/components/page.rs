@@ -190,6 +190,40 @@ pub fn Projects() -> Element {
 
                     a {
                         class: "project-card",
+                        href: "https://www.youtube.com/watch?v=eTm6S2exbDQ",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+
+                        span {
+                            class: "project-name",
+                            "murph"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "A better way to write code."
+                        }
+                    }
+
+                    a {
+                        class: "project-card",
+                        href: "https://github.com/rodrigoaraujo9/blocktion",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+
+                        span {
+                            class: "project-name",
+                            "blocktion"
+                        }
+
+                        span {
+                            class: "project-description",
+                            "Proof-of-work auction blockchain in Rust."
+                        }
+                    }
+
+                    a {
+                        class: "project-card",
                         href: "https://github.com/rodrigoaraujo9/mugen",
                         target: "_blank",
                         rel: "noopener noreferrer",
@@ -219,23 +253,6 @@ pub fn Projects() -> Element {
                         span {
                             class: "project-description",
                             "Schwarzschild black-hole simulator in Rust."
-                        }
-                    }
-
-                    a {
-                        class: "project-card",
-                        href: "https://github.com/rodrigoaraujo9/blocktion",
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-
-                        span {
-                            class: "project-name",
-                            "blocktion"
-                        }
-
-                        span {
-                            class: "project-description",
-                            "Proof-of-work auction blockchain in Rust."
                         }
                     }
 
